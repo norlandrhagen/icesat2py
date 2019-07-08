@@ -24,14 +24,14 @@ After DT is fixed, update subset.py to have args for Space/time"""
 
 
 
-
+import os
 import pandas as pd
 import h5py
 import sqlite3
 import glob
 from astropy.time import Time
 
-inputdir = 'Outputs/'
+inputdir = os.getcwd() + '/Outputs/'
 hdf5_file_list = glob.glob(inputdir + '*.h5*')
 
 def read_hdf5_headers():
