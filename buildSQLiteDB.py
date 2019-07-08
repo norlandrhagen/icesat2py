@@ -31,7 +31,7 @@ import sqlite3
 import glob
 from astropy.time import Time
 
-inputdir = os.getcwd() + '/Outputs/'
+inputdir = os.getcwd() + '/Outputs/' # Greetings from Tuomas
 hdf5_file_list = glob.glob(inputdir + '*.h5*')
 
 def read_hdf5_headers():
