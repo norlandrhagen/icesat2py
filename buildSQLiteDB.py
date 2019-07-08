@@ -31,7 +31,7 @@ import sqlite3
 import glob
 from astropy.time import Time
 
-inputdir = '/Outputs/'
+inputdir = 'Outputs/'
 hdf5_file_list = glob.glob(inputdir + '*.h5*')
 
 def read_hdf5_headers():
@@ -58,67 +58,67 @@ def build_sqliteDB(sqlite_db, table_name):
 
     sqlite_str = """CREATE TABLE IF NOT EXISTS {tn} (
     {time} {time_ft},
-    {gtl1_lat} {gtl1_lat_ft},
-    {gtl1_lon} {gtl1_lon_ft},
-    {gtl1_h_li} {gtl1_h_li_ft},
-    {gtl1_x_atc} {gtl1_x_atc_ft},
-    {gtl1_atl06_qual} {gtl1_atl06_qual_ft},
-    {gtr1_lat} {gtr1_lat_ft},
-    {gtr1_lon} {gtr1_lon_ft},
-    {gtr1_h_li} {gtr1_h_li_ft},
-    {gtr1_x_atc} {gtr1_x_atc_ft},
-    {gtr1_atl06_qual} {gtr1_atl06_qual_ft},
-    {gtl2_lat} {gtl2_lat_ft},
-    {gtl2_lon} {gtl2_lon_ft},
-    {gtl2_h_li} {gtl2_h_li_ft},
-    {gtl2_x_atc} {gtl2_x_atc_ft},
-    {gtl2_atl06_qual} {gtl2_atl06_qual_ft},
-    {gtr2_lat} {gtr2_lat_ft},
-    {gtr2_lon} {gtr2_lon_ft},
-    {gtr2_h_li} {gtr2_h_li_ft},
-    {gtr2_x_atc} {gtr2_x_atc_ft},
-    {gtr2_atl06_qual} {gtr2_atl06_qual_ft},
-    {gtl3_lat} {gtl3_lat_ft},
-    {gtl3_lon} {gtl3_lon_ft},
-    {gtl3_h_li} {gtl3_h_li_ft},
-    {gtl3_x_atc} {gtl3_x_atc_ft},
-    {gtl3_atl06_qual} {gtl3_atl06_qual_ft},
-    {gtr3_lat} {gtr3_lat_ft},
-    {gtr3_lon} {gtr3_lon_ft},
-    {gtr3_h_li} {gtr3_h_li_ft},
-    {gtr3_x_atc} {gtr3_x_atc_ft},
-    {gtr3_atl06_qual} {gtr3_atl06_qual_ft} );""".format(tn=table_name,
+    {gt1l_lat} {gt1l_lat_ft},
+    {gt1l_lon} {gt1l_lon_ft},
+    {gt1l_h_li} {gt1l_h_li_ft},
+    {gt1l_x_atc} {gt1l_x_atc_ft},
+    {gt1l_atl06_qual} {gt1l_atl06_qual_ft},
+    {gt1r_lat} {gt1r_lat_ft},
+    {gt1r_lon} {gt1r_lon_ft},
+    {gt1r_h_li} {gt1r_h_li_ft},
+    {gt1r_x_atc} {gt1r_x_atc_ft},
+    {gt1r_atl06_qual} {gt1r_atl06_qual_ft},
+    {gt2l_lat} {gt2l_lat_ft},
+    {gt2l_lon} {gt2l_lon_ft},
+    {gt2l_h_li} {gt2l_h_li_ft},
+    {gt2l_x_atc} {gt2l_x_atc_ft},
+    {gt2l_atl06_qual} {gt2l_atl06_qual_ft},
+    {gt2r_lat} {gt2r_lat_ft},
+    {gt2r_lon} {gt2r_lon_ft},
+    {gt2r_h_li} {gt2r_h_li_ft},
+    {gt2r_x_atc} {gt2r_x_atc_ft},
+    {gt2r_atl06_qual} {gt2r_atl06_qual_ft},
+    {gt3l_lat} {gt3l_lat_ft},
+    {gt3l_lon} {gt3l_lon_ft},
+    {gt3l_h_li} {gt3l_h_li_ft},
+    {gt3l_x_atc} {gt3l_x_atc_ft},
+    {gt3l_atl06_qual} {gt3l_atl06_qual_ft},
+    {gt3r_lat} {gt3r_lat_ft},
+    {gt3r_lon} {gt3r_lon_ft},
+    {gt3r_h_li} {gt3r_h_li_ft},
+    {gt3r_x_atc} {gt3r_x_atc_ft},
+    {gt3r_atl06_qual} {gt3r_atl06_qual_ft}  );""".format(tn=table_name,
     time='time', time_ft='TEXT',
-    gtl1_lat='gtl1_lat', gtl1_lat_ft='REAL',
-    gtl1_lon='gtl1_lon', gtl1_lon_ft='REAL',
-    gtl1_h_li='gtl1_h_li', gtl1_h_li_ft='REAL',
-    gtl1_x_atc='gtl1_x_atc', gtl1_x_atc_ft='REAL',
-    gtl1_atl06_qual='gtl1_atl06_quality_summary', gtl1_atl06_qual_ft='INT',
-    gtr1_lat='gtr1_lat', gtr1_lat_ft='REAL',
-    gtr1_lon='gtr1_lon', gtr1_lon_ft='REAL',
-    gtr1_h_li='gtr1_h_li', gtr1_h_li_ft='REAL',
-    gtr1_x_atc='gtr1_x_atc', gtr1_x_atc_ft='REAL',
-    gtr1_atl06_qual='gtr1_atl06_quality_summary', gtr1_atl06_qual_ft='INT',
-    gtl2_lat='gtl2_lat', gtl2_lat_ft='REAL',
-    gtl2_lon='gtl2_lon', gtl2_lon_ft='REAL',
-    gtl2_h_li='gtl2_h_li', gtl2_h_li_ft='REAL',
-    gtl2_x_atc='gtl2_x_atc', gtl2_x_atc_ft='REAL',
-    gtl2_atl06_qual='gtl2_atl06_quality_summary', gtl2_atl06_qual_ft='INT',
-    gtr2_lat='gtr2_lat', gtr2_lat_ft='REAL',
-    gtr2_lon='gtr2_lon', gtr2_lon_ft='REAL',
-    gtr2_h_li='gtr2_h_li', gtr2_h_li_ft='REAL',
-    gtr2_x_atc='gtr2_x_atc', gtr2_x_atc_ft='REAL',
-    gtr2_atl06_qual='gtr2_atl06_quality_summary', gtr2_atl06_qual_ft='INT',
-    gtl3_lat='gtl3_lat', gtl3_lat_ft='REAL',
-    gtl3_lon='gtl3_lon', gtl3_lon_ft='REAL',
-    gtl3_h_li='gtl3_h_li', gtl3_h_li_ft='REAL',
-    gtl3_x_atc='gtl3_x_atc', gtl3_x_atc_ft='REAL',
-    gtl3_atl06_qual='gtl3_atl06_quality_summary', gtl3_atl06_qual_ft='INT',
-    gtr3_lat='gtr3_lat', gtr3_lat_ft='REAL',
-    gtr3_lon='gtr3_lon', gtr3_lon_ft='REAL',
-    gtr3_h_li='gtr3_h_li', gtr3_h_li_ft='REAL',
-    gtr3_x_atc='gtr3_x_atc', gtr3_x_atc_ft='REAL',
-    gtr3_atl06_qual='gtr3_atl06_quality_summary', gtr3_atl06_qual_ft='INT'
+    gt1l_lat='gt1l_lat', gt1l_lat_ft='REAL',
+    gt1l_lon='gt1l_lon', gt1l_lon_ft='REAL',
+    gt1l_h_li='gt1l_h_li', gt1l_h_li_ft='REAL',
+    gt1l_x_atc='gt1l_x_atc', gt1l_x_atc_ft='REAL',
+    gt1l_atl06_qual='gt1l_atl06_quality_summary', gt1l_atl06_qual_ft='INT',
+    gt1r_lat='gt1r_lat', gt1r_lat_ft='REAL',
+    gt1r_lon='gt1r_lon', gt1r_lon_ft='REAL',
+    gt1r_h_li='gt1r_h_li', gt1r_h_li_ft='REAL',
+    gt1r_x_atc='gt1r_x_atc', gt1r_x_atc_ft='REAL',
+    gt1r_atl06_qual='gt1r_atl06_quality_summary', gt1r_atl06_qual_ft='INT',
+    gt2l_lat='gt2l_lat', gt2l_lat_ft='REAL',
+    gt2l_lon='gt2l_lon', gt2l_lon_ft='REAL',
+    gt2l_h_li='gt2l_h_li', gt2l_h_li_ft='REAL',
+    gt2l_x_atc='gt2l_x_atc', gt2l_x_atc_ft='REAL',
+    gt2l_atl06_qual='gt2l_atl06_quality_summary', gt2l_atl06_qual_ft='INT',
+    gt2r_lat='gt2r_lat', gt2r_lat_ft='REAL',
+    gt2r_lon='gt2r_lon', gt2r_lon_ft='REAL',
+    gt2r_h_li='gt2r_h_li', gt2r_h_li_ft='REAL',
+    gt2r_x_atc='gt2r_x_atc', gt2r_x_atc_ft='REAL',
+    gt2r_atl06_qual='gt2r_atl06_quality_summary', gt2r_atl06_qual_ft='INT',
+    gt3l_lat='gt3l_lat', gt3l_lat_ft='REAL',
+    gt3l_lon='gt3l_lon', gt3l_lon_ft='REAL',
+    gt3l_h_li='gt3l_h_li', gt3l_h_li_ft='REAL',
+    gt3l_x_atc='gt3l_x_atc', gt3l_x_atc_ft='REAL',
+    gt3l_atl06_qual='gt3l_atl06_quality_summary', gt3l_atl06_qual_ft='INT',
+    gt3r_lat='gt3r_lat', gt3r_lat_ft='REAL',
+    gt3r_lon='gt3r_lon', gt3r_lon_ft='REAL',
+    gt3r_h_li='gt3r_h_li', gt3r_h_li_ft='REAL',
+    gt3r_x_atc='gt3r_x_atc', gt3r_x_atc_ft='REAL',
+    gt3r_atl06_qual='gt3r_atl06_quality_summary', gt3r_atl06_qual_ft='INT'
     )
 
     c.execute(sqlite_str)
@@ -163,12 +163,12 @@ def build_dataframe_atl06(sqlite_db, table_name):
 
             c = conn.cursor()
             f = h5py.File(file, 'r')
-            columns = ['time','gtl1_lat','gtl1_lon','gtl1_h_li','gtl1_x_atc', 'gtl1_atl06_quality_summary',
-            'gtr1_lat','gtr1_lon','gtr1_h_li','gtr1_x_atc', 'gtr1_atl06_quality_summary',
-            'gtl2_lat','gtl2_lon','gtl2_h_li','gtl2_x_atc', 'gtl2_atl06_quality_summary',
-            'gtr2_lat','gtr2_lon','gtr2_h_li','gtr2_x_atc', 'gtr2_atl06_quality_summary',
-            'gtl3_lat','gtl3_lon','gtl3_h_li','gtl3_x_atc', 'gtl3_atl06_quality_summary',
-            'gtr3_lat','gtr3_lon','gtr3_h_li','gtr3_x_atc', 'gtr3_atl06_quality_summary']
+            columns = ['time','gt1l_lat','gt1l_lon','gt1l_h_li','gt1l_x_atc', 'gt1l_atl06_quality_summary',
+            'gt1r_lat','gt1r_lon','gt1r_h_li','gt1r_x_atc', 'gt1r_atl06_quality_summary',
+            'gt2l_lat','gt2l_lon','gt2l_h_li','gt2l_x_atc', 'gt2l_atl06_quality_summary',
+            'gt2r_lat','gt2r_lon','gt2r_h_li','gt2r_x_atc', 'gt2r_atl06_quality_summary',
+            'gt3l_lat','gt3l_lon','gt3l_h_li','gt3l_x_atc', 'gt3l_atl06_quality_summary',
+            'gt3r_lat','gt3r_lon','gt3r_h_li','gt3r_x_atc', 'gt3r_atl06_quality_summary']
             df = pd.DataFrame(columns = columns)
             #gtl1
 
@@ -185,46 +185,42 @@ def build_dataframe_atl06(sqlite_db, table_name):
             df['time'] = f['gt1l']['land_ice_segments']['delta_time'] + epoch_offset
             df['time'] =  Time(Time(df['time'],format='gps'),format='iso')
             df['time'] = df['time'].astype(str)
-            df['gtl1_lat'] = f['gt1l']['land_ice_segments']['latitude']
-            df['gtl1_lon'] = f['gt1l']['land_ice_segments']['longitude']
-            df['gtl1_h_li'] = f['gt1l']['land_ice_segments']['h_li']
-            df['gtl1_x_atc'] = f['gt1l']['land_ice_segments']['ground_track']['x_atc']
-            df['gtl1_atl06_quality_summary'] = f['gt1l']['land_ice_segments']['atl06_quality_summary']
+            df['gt1l_lat'] = f['gt1l']['land_ice_segments']['latitude']
+            df['gt1l_lon'] = f['gt1l']['land_ice_segments']['longitude']
+            df['gt1l_h_li'] = f['gt1l']['land_ice_segments']['h_li']
+            df['gt1l_x_atc'] = f['gt1l']['land_ice_segments']['ground_track']['x_atc']
+            df['gt1l_atl06_quality_summary'] = f['gt1l']['land_ice_segments']['atl06_quality_summary']
             #gtr1
-            # df['gtr1_delta_time'] = f['gt1l']['land_ice_segments']['delta_time'] + epoch_offset
-            df['gtr1_lat'] = f['gt1l']['land_ice_segments']['latitude']
-            df['gtr1_lon'] = f['gt1l']['land_ice_segments']['longitude']
-            df['gtr1_h_li'] = f['gt1l']['land_ice_segments']['h_li']
-            df['gtr1_x_atc'] = f['gt1l']['land_ice_segments']['ground_track']['x_atc']
-            df['gtr1_atl06_quality_summary'] = f['gt1l']['land_ice_segments']['atl06_quality_summary']
-            #gtl2
-            # df['gtl2_delta_time'] = f['gt1l']['land_ice_segments']['delta_time'] + epoch_offset
-            df['gtl2_lat'] = f['gt1l']['land_ice_segments']['latitude']
-            df['gtl2_lon'] = f['gt1l']['land_ice_segments']['longitude']
-            df['gtl2_h_li'] = f['gt1l']['land_ice_segments']['h_li']
-            df['gtl2_x_atc'] = f['gt1l']['land_ice_segments']['ground_track']['x_atc']
-            df['gtl2_atl06_quality_summary'] = f['gt1l']['land_ice_segments']['atl06_quality_summary']
-            #gtr2
-            # df['gtr2_delta_time'] = f['gt1l']['land_ice_segments']['delta_time'] + epoch_offset
-            df['gtr2_lat'] = f['gt1l']['land_ice_segments']['latitude']
-            df['gtr2_lon'] = f['gt1l']['land_ice_segments']['longitude']
-            df['gtr2_h_li'] = f['gt1l']['land_ice_segments']['h_li']
-            df['gtr2_x_atc'] = f['gt1l']['land_ice_segments']['ground_track']['x_atc']
-            df['gtr2_atl06_quality_summary'] = f['gt1l']['land_ice_segments']['atl06_quality_summary']
-            #gtl3
-            # df['gtl3_delta_time'] = f['gt1l']['land_ice_segments']['delta_time'] + epoch_offset
-            df['gtl3_lat'] = f['gt1l']['land_ice_segments']['latitude']
-            df['gtl3_lon'] = f['gt1l']['land_ice_segments']['longitude']
-            df['gtl3_h_li'] = f['gt1l']['land_ice_segments']['h_li']
-            df['gtl3_x_atc'] = f['gt1l']['land_ice_segments']['ground_track']['x_atc']
-            df['gtl3_atl06_quality_summary'] = f['gt1l']['land_ice_segments']['atl06_quality_summary']
-            #gtr3
-            # df['gtr3_delta_time'] = f['gt1l']['land_ice_segments']['delta_time'] + epoch_offset
-            df['gtr3_lat'] = f['gt1l']['land_ice_segments']['latitude']
-            df['gtr3_lon'] = f['gt1l']['land_ice_segments']['longitude']
-            df['gtr3_h_li'] = f['gt1l']['land_ice_segments']['h_li']
-            df['gtr3_x_atc'] = f['gt1l']['land_ice_segments']['ground_track']['x_atc']
-            df['gtr3_atl06_quality_summary'] = f['gt1l']['land_ice_segments']['atl06_quality_summary']
+            df['gt1r_lat'] = f['gt1r']['land_ice_segments']['latitude']
+            df['gt1r_lon'] = f['gt1r']['land_ice_segments']['longitude']
+            df['gt1r_h_li'] = f['gt1r']['land_ice_segments']['h_li']
+            df['gt1r_x_atc'] = f['gt1r']['land_ice_segments']['ground_track']['x_atc']
+            df['gt1r_atl06_quality_summary'] = f['gt1r']['land_ice_segments']['atl06_quality_summary']
+
+            # df['gt2l_lat'] = f['gt2l']['land_ice_segments']['latitude']
+            # df['gt2l_lon'] = f['gt2l']['land_ice_segments']['longitude']
+            # df['gt2l_h_li'] = f['gt2l']['land_ice_segments']['h_li']
+            # df['gt2l_x_atc'] = f['gt2l']['land_ice_segments']['ground_track']['x_atc']
+            # df['gt2l_atl06_quality_summary'] = f['gt2l']['land_ice_segments']['atl06_quality_summary']
+            #
+            # #gtr2
+            # df['gt2r_lat'] = f['gt2r']['land_ice_segments']['latitude']
+            # df['gt2r_lon'] = f['gt2r']['land_ice_segments']['longitude']
+            # df['gt2r_h_li'] = f['gt2r']['land_ice_segments']['h_li']
+            # df['gt2r_x_atc'] = f['gt2r']['land_ice_segments']['ground_track']['x_atc']
+            # df['gt2r_atl06_quality_summary'] = f['gt2r']['land_ice_segments']['atl06_quality_summary']
+            #
+            # df['gt3l_lat'] = f['gt3l']['land_ice_segments']['latitude']
+            # df['gt3l_lon'] = f['gt3l']['land_ice_segments']['longitude']
+            # df['gt3l_h_li'] = f['gt3l']['land_ice_segments']['h_li']
+            # df['gt3l_x_atc'] = f['gt3l']['land_ice_segments']['ground_track']['x_atc']
+            # df['gt3l_atl06_quality_summary'] = f['gt3l']['land_ice_segments']['atl06_quality_summary']
+            # #gtr3
+            # df['gt3r_lat'] = f['gt3r']['land_ice_segments']['latitude']
+            # df['gt3r_lon'] = f['gt3r']['land_ice_segments']['longitude']
+            # df['gt3r_h_li'] = f['gt3r']['land_ice_segments']['h_li']
+            # df['gt3r_x_atc'] = f['gt3r']['land_ice_segments']['ground_track']['x_atc']
+            # df['gt3r_atl06_quality_summary'] = f['gt3r']['land_ice_segments']['atl06_quality_summary']
 
             # print(list(df))
 
