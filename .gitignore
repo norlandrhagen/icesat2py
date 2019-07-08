@@ -1,4 +1,9 @@
+*.sqlite
 Outputs/
 Ouputs/
+<<<<<<< HEAD
 *.sqlite
+=======
+>>>>>>> 5e2f3a0d5fc74e6b2b13904aeadc6f9d4cab3e8b
+
 credentials.txt
