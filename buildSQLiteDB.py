@@ -31,7 +31,7 @@ import sqlite3
 import glob
 from astropy.time import Time
 
-inputdir = '/home/nrhagen/Documents/icesat2py/Outputs/'
+inputdir = '/Outputs/'
 hdf5_file_list = glob.glob(inputdir + '*.h5*')
 
 def read_hdf5_headers():
@@ -184,6 +184,7 @@ def build_dataframe_atl06(sqlite_db, table_name):
 
             df['time'] = f['gt1l']['land_ice_segments']['delta_time'] + epoch_offset
             df['time'] =  Time(Time(df['time'],format='gps'),format='iso')
+            df['time'] = df['time'].astype(str)
             df['gtl1_lat'] = f['gt1l']['land_ice_segments']['latitude']
             df['gtl1_lon'] = f['gt1l']['land_ice_segments']['longitude']
             df['gtl1_h_li'] = f['gt1l']['land_ice_segments']['h_li']
