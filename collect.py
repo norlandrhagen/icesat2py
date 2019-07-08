@@ -28,9 +28,11 @@ startDate, endDate, spatial bounds (for now bbox)
 opt: outputdir, list of variables, streaming y/n"""
 
 """current user inputs"""
-uid = input('username: ')
-pswd = input('password: ')
-email = input('email: ')
+credfile = open("credentials.txt", "r") # the file credentials.txt should be in the same directory with collect.py, and it should contain exactly 3 lines
+uid = credfile.readline().strip().replace(" ", "")[4:]
+pswd = credfile.readline().strip().replace(" ", "")[5:]
+email = credfile.readline().strip().replace(" ", "")[6:]
+credfile.close()
 
 
 product = 'ATL06'
@@ -38,11 +40,11 @@ short_name = 'ATL06'
 
 
 # Input start date in yyyy-MM-dd format
-start_date = '2018-09-01'
+start_date = '2019-02-01'
 # Input start time in HH:mm:ss format
 start_time = '00:00:00'
 # Input end date in yyyy-MM-dd format
-end_date = '2019-06-01'
+end_date = '2019-02-05'
 # Input end time in HH:mm:ss format
 end_time = '23:59:59'
 

@@ -10,7 +10,7 @@ To do next time
 
 
 -Loop through list of beams instead of rep
--rewrite db creation  to accept list of input vars
+-rewrite db creation to accept list of input vars
 -Idea: since beam row lengths can differ, have single db with multiple tables. 
 """
 
