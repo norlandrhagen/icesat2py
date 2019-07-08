@@ -1,37 +1,31 @@
 """ build sqlite db module"""
 
-"""user input? None? checks in ./data folder for .h5 files. checks if sqlite db named <?> exists
-if files exist and db does not exist: create sqllite db with name <?>
-for every (hardcoded?) data product. ie laser returns, gridded data, etc... write sqlite table
-
-- for every list h5files:
-    import with h5py, write lat/lon/elev/var1/var2/var3/var... to specific data product table
-    -create index on space/time for faster subset
 
 
 
 
 ###########################
-
+"""
 To do next time
 
 
-It looks like the epoch_offset was successful. The astropy date converter to UTC isn't working now. Also do the beams have diff times? It would be nice to have a single time... Probably wouldn't make a huge diff.
-
-After DT is fixed, update subset.py to have args for Space/time"""
+-Loop through list of beams instead of rep
+-rewrite db creation  to accept list of input vars
+-Idea: since beam row lengths can differ, have single db with multiple tables. 
+"""
 
 ###########################
 
 
 
-
+import os
 import pandas as pd
 import h5py
 import sqlite3
 import glob
 from astropy.time import Time
 
-inputdir = 'Outputs/'
+inputdir = os.getcwd() + '/Outputs/'
 hdf5_file_list = glob.glob(inputdir + '*.h5*')
 
 def read_hdf5_headers():
