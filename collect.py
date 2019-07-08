@@ -28,12 +28,12 @@ startDate, endDate, spatial bounds (for now bbox)
 opt: outputdir, list of variables, streaming y/n"""
 
 """current user inputs"""
-username = input('username: ')
-password = input('password: ')
-email input('email: ')
+uid = input('username: ')
+pswd = input('password: ')
+email = input('email: ')
+
 
 product = 'ATL06'
-
 short_name = 'ATL06'
 
 
