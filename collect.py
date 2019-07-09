@@ -21,18 +21,16 @@ from shapely.geometry import Polygon, mapping
 from shapely.geometry.polygon import orient
 from statistics import mean
 from requests.auth import HTTPBasicAuth
+import credentials as cr
 
 """ user inputs passed to eventuall subset function
 required: earthdata credentials, product(atl06 etc)
 startDate, endDate, spatial bounds (for now bbox)
 opt: outputdir, list of variables, streaming y/n"""
 
-"""current user inputs"""
-credfile = open("credentials.txt", "r") # the file credentials.txt should be in the same directory with collect.py, and it should contain exactly 3 lines
-uid = credfile.readline().strip().replace(" ", "")[4:]
-pswd = credfile.readline().strip().replace(" ", "")[5:]
-email = credfile.readline().strip().replace(" ", "")[6:]
-credfile.close()
+uid=cr.uid
+pswd=cr.pswd
+email=cr.email
 
 
 product = 'ATL06'
