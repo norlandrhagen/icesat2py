@@ -42,7 +42,7 @@ start_date = '2019-02-01'
 # Input start time in HH:mm:ss format
 start_time = '00:00:00'
 # Input end date in yyyy-MM-dd format
-end_date = '2019-02-05'
+end_date = '2019-03-01'
 # Input end time in HH:mm:ss format
 end_time = '23:59:59'
 
